@@ -1,0 +1,244 @@
+%%%%Select the class of document
+\documentclass{amsart} %type/class of article
+%\documentclass{article}
+%\documentclass{book}
+%\documentclass{letter}
+
+%%%%Select packages
+\usepackage{amsthm,amsmath,amssymb} %math packages (always include)
+\usepackage{geometry} %can be used to modify page dimensions, etc.
+\usepackage{graphicx} %figure
+\usepackage{float} %figure position in pdf
+\usepackage{multirow} %table with multirow
+\usepackage[labelfont=rm]{subcaption} %subcaption of figure
+\usepackage[numbers]{natbib} %management of bibliography
+\usepackage{listings} %use to list command or else in block
+\usepackage{xcolor}  %allow to display color
+%%%%% End Select packages
+
+%%%%Customize commands
+\usepackage{mydef}  %add new command from a file called mydef.sty
+%Note that you can copy the content of mydef.sty here and comment the above line.
+%%%%End Customize commands
+
+%%%% Define a style used to display a block of Latex code
+\lstdefinestyle{TexStyle}{
+language={[LaTeX]TeX},
+frame=single,
+backgroundcolor=\color{white},
+basicstyle=\small\ttfamily,
+morekeywords={maketitle,includegraphics},
+keywordstyle=\color{blue},  
+commentstyle=\color{gray},
+stringstyle=\color{black}
+}
+
+
+%%%% Set up title page information
+\title{CAAM 519: Computational Science I \\
+Latex Example 1.}
+\author{Lo\"{i}c Cappanera}
+%\date{\today}
+%%%% End Set up title page information
+
+
+%%% Begin document
+\begin{document}
+
+%%%% Write an abstract if needed
+\begin{abstract}
+Recently, I have been reading about optimal way to train neural ODEs from \citep{finlay2020}.
+\end{abstract}
+
+%%%% Make title page
+\maketitle
+
+\section{Tree of the article} \label{sec:latex_structure}
+
+An article starts with a section, then subsection (then subsubsection if required). A book start with chapters.
+
+\subsection{Subsection}
+This is my first subsection.
+
+\subsection{Subsection}
+This is my second subsection.
+\subsubsection{Subsubsection}
+\paragraph{Hello this is a paragraph in a subsubsection.}
+
+\paragraph{Hello this is another paragraph}
+\subsubsection{Subsubsection}
+You do not need to use the command paragraph to write text.
+
+\noindent Here is a new paragraph without using the paragrah command.
+
+\section{Citing scientific article or book} \label{sec:latex_cite_biblio}
+
+%You can add \noindent if you dont want indenting at the begining of your paragraph.
+The Latex companion of Mittelbach et al\cite{mittelbach2004latex}
+
+The C programming language of Kernighan et al\cite{kernighan2006c}
+
+The C++ programming language of Stroustrup
+\cite{stroustrup2013c++}
+
+\section{Include mathematics formulae} \label{sec:latex_math}
+
+\subsection{Equations} You can write mathematical formulae using  $\$ formula \$ $ as follows:
+$a=b$.
+
+It is possible to center the formulae.
+%center the math formulae as follows:
+$$a=b$$
+%or
+\[  a = b\]
+
+Write an equation.
+\begin{equation}
+a=b
+\end{equation}
+
+Write an equation that is longer than one line.
+\begin{multline}
+a + b + c + d + e + f +g + h + i + j + k + l + m + n
+\\
+- o - p -q -u - r -s - t - v -w -x -y =z.
+\end{multline}
+
+Align  multiple equations (see in comment how to remove the numbering of the equations).
+\begin{align}
+\label{eq:first_align_eq}
+a 	&=b,
+\\
+c	&=d.
+\end{align}
+%remove numbering of the aligned equations:
+%\begin{align*}
+%a 	&=b,
+%\\
+%c	&=d.
+%\end{align*}
+
+To be able to label each aligned equations, use subequations as follows:
+\begin{subequations}\label{eq:Navier_Stokes}
+\begin{align}
+ &\partial_t \rho   + \DIV \textbf{m} =0 \label{eq:mass_equation}\\ 
+ &\partial_t (\rho \textbf{u})   + \DIV( \textbf{m}{\otimes}\textbf{u})  
+-  \DIV (\eta\GRAD (\textbf{u})) + \GRAD p 
+ =   \textbf{f}, 
+\label{eq:momentum_equation}\\
+&\DIV \textbf{u}   =    0,  \label{eq:incompressibility_equation} 
+\end{align}
+\end{subequations}
+
+\subsection{Tables} Table can be used to contain tabular or array. The main difference is that an array is written in a mathematical mode (between $\$$ sign).
+
+Here is an array.
+\begin{table}[h]
+\[
+\begin{array}{|c|c|c|}
+\hline
+First row & \cos(e^x) & x_1+ x_2 \\
+\hline
+\text{Second Row} & a & b \\
+\hline
+\end{array}
+\]
+\caption{My first array}
+\end{table}
+
+Here is a tabular.
+\begin{table}[h]
+\begin{tabular}{|c|c|c|}
+\hline
+First row & $\cos(e^x)$ & $x_1+ x_2$ \\
+\hline
+Second Row & a & b \\
+\hline
+Third row &c  & d\\
+\hline
+\end{tabular}
+\caption{My first tabular}
+\label{tab:tabular}
+\end{table}
+
+Here is a the block of code used to generate the table~\ref{tab:tabular}.
+\begin{lstlisting}[style=TexStyle]
+\begin{table}[h]
+\begin{tabular}{|c|c|c|}
+\hline
+First row & $\cos(e^x)$ & $x_1+ x_2$ \\
+\hline
+Second Row & a & b \\
+\hline
+Third row &c  & d\\
+\hline
+\end{tabular}
+\caption{My first tabular}
+\label{tab:tabular}
+\end{table}
+\end{lstlisting}
+
+Here is a tabular with multirow and multicolumn:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline\multicolumn{3}{|c|}{$\textbf{L}^2$-norm of error}
+& \multicolumn{2}{|c|}{Velocity}
+& \multicolumn{2}{|c|}{Pressure} \\ \hline \hline 
+&  $h$  & $n_\text{df}$ & Error  & Rate  & Error  & Rate   \\ \hline
+\multirow{5}{*}{Test 1}
+&$0.1$    &  270& 2.22E-3& --  & 5.03E-4& --   \\ \cline{2-7} 
+&$0.05$   &  986& 7.90E-4& 1.60& 2.14E-4& 1.32\\  \cline{2-7} 
+&$0.025$  & 3810& 3.66E-4& 1.14& 1.04E-4& 1.07\\  \cline{2-7} 
+&$0.0125$ &14993& 1.82E-4& 1.02& 5.16E-5& 1.02\\ \cline{2-7} 
+&$0.00625$&59628& 5.80E-5& 1.65& 1.65E-5& 1.65\\
+\hline\hline
+\multirow{5}{*}{Test 2}
+&$0.1$    &  270& 1.20E-2& --  & 9.12E-2& --  \\ \cline{2-7} 
+&$0.05$   &  986& 1.48E-3& 2.99& 3.88E-2& 1.32\\  \cline{2-7} 
+&$0.025$  & 3810& 3.96E-4& 1.96& 1.43E-3& 1.48\\  \cline{2-7} 
+&$0.0125$ &14993& 1.77E-4& 1.18& 6.72E-3& 1.10\\  \cline{2-7} 
+&$0.00625$&59628& 5.63E-5& 1.66& 2.14E-3& 1.66\\ \hline 
+\end{tabular} 
+\caption{Examples of table with multirow and multicolumn. h is hte mesh size qnd $n_\text{df}$ the number of degree of freedom. Table from Cappanera et al 2017 (IJNMF).}
+\label{tab:tabular_multirow}
+\end{table}
+  
+
+\section{Include figures} \label{sec:latex_figure}
+One figure
+\begin{figure}[h]
+\includegraphics[width=0.4\textwidth]{FIGS/J0_2d4_85.png}
+\caption{Snapshot interface between two fluids. Image from Cappanera et al 2017 (IJNMF).}
+\label{fig:first_fig}
+\end{figure}
+
+
+Four figures aligned horizontally using minipage and subcaption.
+\begin{figure}[h]
+\begin{minipage}[b]{0.24\linewidth}
+\includegraphics[width=0.9\textwidth]{FIGS/J0_2d4_82.png}
+\subcaption{$t{=}8$}
+\end{minipage}\hfil
+\begin{minipage}[b]{0.24\linewidth}
+\includegraphics[width=0.9\textwidth]{FIGS/J0_2d4_83.png}
+\subcaption{$t{=}8.2$}
+\end{minipage}\hfil
+\begin{minipage}[b]{0.24\linewidth}
+\includegraphics[width=0.9\textwidth]{FIGS/J0_2d4_84.png}
+\subcaption{$t{=}8.4$}
+\end{minipage} \hfil
+\begin{minipage}[b]{0.24\linewidth}
+\includegraphics[width=0.9\textwidth]{FIGS/J0_2d4_85.png}
+\subcaption{$t{=}8.6$}
+\end{minipage}
+\caption{Evolution of interface between two fluids. Images from Cappanera et al 2017 (IJNMF).}
+\label{fig:fig_with_minipage}
+\end{figure}
+
+
+%%% Add bibliography if any
+\bibliographystyle{abbrvnat}  %select the style
+\bibliography{biblio} % select the files (without the .bib)
+
+%%%% End document
+\end{document}

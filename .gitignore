@@ -1,3 +1,9 @@
+#HW1
+*.aux
+*.log
+*.gz
+
+
 # Prerequisites
 *.d
 
