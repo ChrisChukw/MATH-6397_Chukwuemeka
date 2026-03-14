@@ -1,7 +1,9 @@
 #include "matrix_2D.h"
+#include "gauss_elimination.h"
 
 int main(void){
 
+                      // Part I
   //  read matrices from files matrix_A and matrix_B
   //  set their tags to "ma" and "mb"
   matrix ma = matrix_read("matrices/matrix_A", "ma");
@@ -15,11 +17,18 @@ int main(void){
   matrix maxb = matrix_product(ma, mb, "maxmb");
   matrix_write(maxb);
 
+
+                         // Part II
+  // inverse of ma -> ma_inverse (tag "ma_inverse"), write result with matrix_write
+  matrix ma_inverse = matrix_gauss_inverse(ma, "ma_inverse");
+  matrix_write(ma_inverse);
+
   // Call destructors
   matrix_destructor(&ma);
   matrix_destructor(&mb);
   matrix_destructor(&maplusmb);
   matrix_destructor(&maxb);
+  matrix_destructor(&ma_inverse);
 
   return 0;
 }
