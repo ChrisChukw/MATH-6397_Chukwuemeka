@@ -32,3 +32,12 @@ int main(void){
 
   return 0;
 }
+
+//note: I put matrix_A and matrix_B in a subfolder called matrices
+
+// compile with:
+// gcc -std=c11 main.c matrix_2D.c gauss_elimination.c -lm -o matrix_exe
+
+// run with:
+// ./matrix_exe
+
