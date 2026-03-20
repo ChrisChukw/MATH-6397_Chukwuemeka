@@ -2,8 +2,8 @@
 ======================
 ==== GRADES (over 100)
 ======================
-Assignment 1:
-Assignment 2:
+Assignment 1: 98
+Assignment 2: 95
 Assignment 3:
 Assignment 4:
 Assignment 5:
@@ -13,10 +13,12 @@ Assignment 5:
 ======================
 
 ===Assignment 1
-TBA
+gitignore for HW_1 global not local
 
 ===Assignment 2
-TBA
+Sine and array: While I agree that the structure of your codes is good (.h with associated .c for functions), this is not what I asked so I deduced points.
+For array: you print additional information (not asked).
+
 
 ===Assignment 3
 TBA
