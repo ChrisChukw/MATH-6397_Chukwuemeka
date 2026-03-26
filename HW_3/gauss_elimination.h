@@ -7,7 +7,6 @@
 #define GAUSS_ELIMINATION_H
 
 
-
 // swap two rows of a matrix (row n1 <-> row n2)
 void matrix_swap_row(matrix m, int n1, int n2);
 

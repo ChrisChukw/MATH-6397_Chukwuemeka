@@ -176,7 +176,7 @@ matrix matrix_gauss_inverse(matrix m, char *tag)
   }
 
   // at this point, A should be the identity, and I should be the inverse of m. 
-  // We will return I, but first we need to copy it into a new matrix with the correct tag 
+  // We will return I, but first we copy it into a new matrix with the correct tag 
 
   matrix_destructor(&inv); // free default NULL matrix
 

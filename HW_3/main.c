@@ -40,4 +40,3 @@ int main(void){
 
 // run with:
 // ./matrix_exe
-
