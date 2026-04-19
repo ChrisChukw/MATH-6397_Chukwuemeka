@@ -3,9 +3,11 @@
 
 int main(void) {
 
+  // try block to catch exceptions thrown by my_matrix methods
   try {
 
-    // F1: (2,3) float, all ones
+
+    // F1: a (2,3) matrix of floats with all entries equal to 1.0
     my_matrix<float> F1(2, 3);
     for (int i = 0; i < 2; i++) {
       for (int j = 0; j < 3; j++) {
@@ -13,7 +15,7 @@ int main(void) {
       }
     }
 
-    // F3 = F1 + F1, display line by line
+    // F3 = F1 + F1. We display  result line by line
     my_matrix<float> F3 = F1 + F1;
     std::cout << "F3 = F1 + F1:" << std::endl;
     for (int i = 0; i < 2; i++) {
@@ -23,7 +25,7 @@ int main(void) {
       std::cout << std::endl;
     }
 
-    // F2: (3,3) float, all twos
+    // F2: a (3,3) matrix of all 2's
     my_matrix<float> F2(3, 3);
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -31,7 +33,7 @@ int main(void) {
       }
     }
 
-    // F4 = F1 * F2, display line by line
+    // F4 = F1 * F2. We display result line by line
     my_matrix<float> F4 = F1 * F2;
     std::cout << "F4 = F1 * F2:" << std::endl;
     for (int i = 0; i < 2; i++) {
@@ -42,6 +44,8 @@ int main(void) {
     }
 
   }
+
+  // catch exceptions and print error message
   catch (const char* e) {
     std::cout << e << std::endl;
     return 1;
