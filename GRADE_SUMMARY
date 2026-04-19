@@ -4,7 +4,7 @@
 ======================
 Assignment 1: 98
 Assignment 2: 95
-Assignment 3:
+Assignment 3: 98
 Assignment 4:
 Assignment 5:
 
@@ -19,9 +19,8 @@ gitignore for HW_1 global not local
 Sine and array: While I agree that the structure of your codes is good (.h with associated .c for functions), this is not what I asked so I deduced points.
 For array: you print additional information (not asked).
 
-
 ===Assignment 3
-TBA
+Memory matrices not contiguous (should be by default even if not asked)
 
 ===Assignment 4
 TBA
