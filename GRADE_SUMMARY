@@ -5,8 +5,10 @@
 Assignment 1: 98
 Assignment 2: 95
 Assignment 3: 98
-Assignment 4:
-Assignment 5:
+Assignment 4: 100
+
+Average: 97.75
+Letter Grade: A
 
 ======================
 === COMMENTS
@@ -23,7 +25,4 @@ For array: you print additional information (not asked).
 Memory matrices not contiguous (should be by default even if not asked)
 
 ===Assignment 4
-TBA
-
-===Assignment 5
-TBA
+None
